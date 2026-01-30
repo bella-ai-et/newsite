@@ -3,6 +3,7 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { FadeIn, ScaleOnHover } from '@/components/animations';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Building2, Globe, Briefcase, FileText, CreditCard, Scale } from 'lucide-react';
 import CTASection from '@/components/cta-section';
 
@@ -117,11 +118,12 @@ export default function ServicesPage() {
              </FadeIn>
              <FadeIn direction="left" delay={0.2}>
                <div className="relative h-[500px] bg-slate-800 rounded-2xl overflow-hidden">
-                  {/* Abstract graphic or image placeholder */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20"></div>
-                  <div className="flex items-center justify-center h-full text-slate-600">
-                    <span className="material-symbols-outlined text-8xl">support_agent</span>
-                  </div>
+                 <Image 
+                   src="/our-service.png" 
+                   alt="Our Services" 
+                   fill 
+                   className="object-cover"
+                 />
                </div>
              </FadeIn>
            </div>
