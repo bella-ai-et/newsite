@@ -79,9 +79,32 @@ export default function Hero() {
           {/* CTA Button */}
           <FadeIn direction="up" delay={0.8}>
             <ScaleOnHover>
-              <Link href="/contact" className="bg-white text-[#1B4D6B] px-12 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all shadow-2xl inline-flex items-center gap-2">
-                Start Here
-                <ArrowRight className="w-5 h-5" />
+              <Link href="/contact" className="relative bg-white text-[#1B4D6B] px-12 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all shadow-2xl inline-flex items-center gap-2 overflow-hidden group">
+                <span className="relative z-10 flex items-center gap-2">
+                  Start Here
+                  <ArrowRight className="w-5 h-5" />
+                </span>
+                <svg className="absolute inset-0 w-full h-full pointer-events-none">
+                  <motion.rect
+                    width="100%"
+                    height="100%"
+                    rx="12"
+                    ry="12"
+                    fill="none"
+                    stroke="#EAB308"
+                    strokeWidth="4"
+                    initial={{ pathLength: 0.3, opacity: 0 }}
+                    animate={{ 
+                      pathOffset: [0, 1],
+                      opacity: 1
+                    }}
+                    transition={{ 
+                      duration: 2, 
+                      repeat: Infinity, 
+                      ease: "linear",
+                    }}
+                  />
+                </svg>
               </Link>
             </ScaleOnHover>
           </FadeIn>
