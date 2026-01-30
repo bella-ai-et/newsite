@@ -13,9 +13,25 @@ export default function ContactForm() {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('[v0] Form submitted:', formData);
-    // Handle form submission here
-    alert("Thank you for your inquiry. We will contact you shortly.");
+    
+    // Format the message for WhatsApp
+    const message = `*New Inquiry via Website*
+    
+*Name:* ${formData.fullName}
+*Email:* ${formData.email}
+*Service Interest:* ${formData.service}`;
+
+    // Clean phone number (remove spaces and +)
+    const phoneNumber = COMPANY_INFO.phone.main.replace(/[^0-9]/g, '');
+    
+    // Create WhatsApp URL
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    
+    // Open in new tab
+    window.open(whatsappUrl, '_blank');
+    
+    // Optional: Reset form or show success message
+    // setFormData({ fullName: '', email: '', service: '' });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {

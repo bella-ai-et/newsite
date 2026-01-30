@@ -24,10 +24,18 @@ export default function ContactPage() {
             <FadeIn direction="up" delay={0.2}>
               <h2 className="text-2xl font-bold mb-4">Visit Our Office</h2>
               <p className="text-slate-600 mb-8">AL GURG TOWER 3, Tayseer Business Center, Dubai, UAE</p>
-              {/* Placeholder for Map */}
-              <div className="w-full h-96 bg-slate-100 rounded-xl flex items-center justify-center text-slate-400 border border-slate-200">
-                 <span className="material-symbols-outlined text-6xl">map</span>
-                 <span className="ml-2">Google Map Placeholder</span>
+              <div className="w-full h-96 bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-lg relative">
+                 <iframe 
+                   src="https://maps.google.com/maps?q=Tayseer+Business+Center+Al+Gurg+Tower+3+Dubai&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                   width="100%" 
+                   height="100%" 
+                   style={{ border: 0 }} 
+                   allowFullScreen 
+                   loading="lazy" 
+                   referrerPolicy="no-referrer-when-downgrade"
+                   title="Office Location"
+                   className="absolute inset-0"
+                 />
               </div>
             </FadeIn>
          </div>

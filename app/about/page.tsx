@@ -5,6 +5,7 @@ import { COMPANY_INFO } from '@/lib/data';
 import { CheckCircle2, Target, Users, ShieldCheck } from 'lucide-react';
 import CTASection from '@/components/cta-section';
 import { FadeIn, ScaleOnHover, ZoomIn } from '@/components/animations';
+import Image from 'next/image';
 
 export default function AboutPage() {
   const values = [
@@ -60,11 +61,14 @@ export default function AboutPage() {
           </FadeIn>
           <FadeIn direction="left" delay={0.2}>
             <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl bg-slate-100">
-              {/* Placeholder for an office or team image */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/10 to-transparent"></div>
-              <div className="flex items-center justify-center h-full text-slate-400 bg-slate-200">
-                  <span className="material-symbols-outlined text-6xl">business</span>
-              </div>
+              <Image 
+                src="/about-us.png" 
+                alt="Our Team" 
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/10 to-transparent pointer-events-none"></div>
             </div>
           </FadeIn>
         </div>
