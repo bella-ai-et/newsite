@@ -3,18 +3,18 @@ import Image from 'next/image';
 export default function WhyChooseUs() {
   const features = [
     {
-      title: '10+ Years of Excellence',
-      description: "A decade of experience navigating the UAE's regulatory landscape with precision.",
+      title: 'End-to-End Support',
+      description: "From company registration to banking and compliance, we handle every step of your business setup journey.",
       icon: 'verified',
     },
     {
-      title: 'Transparent Pricing',
-      description: 'No hidden fees or surprise costs. We provide clear, upfront investment roadmaps.',
+      title: 'Transparent Process',
+      description: 'No hidden fees or surprise costs. Clear documentation, structured guidance, and upfront pricing.',
       icon: 'payments',
     },
     {
       title: '100% Ownership Solutions',
-      description: 'Maximize your control with tailored mainland and free zone setup structures.',
+      description: 'Full foreign ownership options across Free Zone, Mainland, and Offshore structures tailored to your needs.',
       icon: 'account_balance',
     },
   ];
@@ -33,7 +33,7 @@ export default function WhyChooseUs() {
                 Expert Guidance for Your Business Success in Dubai
               </h1>
               <p className="text-lg text-[#4c669a] leading-relaxed max-w-xl">
-                We simplify the complexities of UAE company formation, allowing you to focus on growing your business while we handle the rest.
+                Starting a business in the UAE does not have to be complicated. JoAB Solutions provides structured consultation, documentation support, and coordination with authorized entities.
               </p>
             </div>
 
@@ -89,8 +89,8 @@ export default function WhyChooseUs() {
                   <span className="material-symbols-outlined">trending_up</span>
                 </div>
                 <div>
-                  <p className="text-2xl font-extrabold text-gray-900">500+</p>
-                  <p className="text-sm text-[#4c669a]">Companies Setup</p>
+                  <p className="text-2xl font-extrabold text-gray-900">Since 2022</p>
+                  <p className="text-sm text-[#4c669a]">Trusted by Entrepreneurs</p>
                 </div>
               </div>
             </div>

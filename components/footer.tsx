@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="lg:col-span-4 flex flex-col gap-6">
             <h2 className="text-blue-600 text-xl font-bold tracking-tight">JOAB SOLUTIONS</h2>
             <p className="text-slate-600 text-sm leading-relaxed max-w-sm">
-              Leading experts in company formation and corporate support in the UAE. We simplify your business journey with professional excellence.
+              Professional business setup and consultancy firm dedicated to supporting entrepreneurs and growing companies in the UAE. From initial idea to fully operational company.
             </p>
             {/* Social Icons */}
             <div className="flex gap-3 mt-2">
@@ -143,7 +143,7 @@ export default function Footer() {
         {/* Bottom Footer */}
         <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-slate-400 text-xs font-medium tracking-tight">
-            © 2024 JOAB Solutions. All rights reserved.
+            © 2026 JoAB Solutions. All rights reserved.
           </p>
           <div className="flex gap-8">
             <Link

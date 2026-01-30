@@ -50,7 +50,7 @@ export default function Services() {
             Complete Business Solutions in UAE
           </h2>
           <p className="max-w-2xl text-lg text-[#4c669a] leading-relaxed">
-            Navigate the complexities of business setup with our expert-led services tailored for your success in Dubai and beyond.
+            From choosing the right jurisdiction to licensing, visas, and banking — we guide you through every step of your UAE business journey.
           </p>
         </div>
 

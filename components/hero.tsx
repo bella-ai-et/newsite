@@ -37,7 +37,7 @@ export default function Hero() {
               Your Gateway to Dubai Business Success
             </h1>
             <p className="text-xl text-white/70 mt-6 max-w-xl leading-relaxed">
-              Partner with JOAB Solutions, the premier business setup company in Dubai. Your trusted, award-winning partner for seamless incorporation.
+              JoAB Solutions guides entrepreneurs from initial concept to fully operational company. We simplify complex procedures with clarity, compliance, and confidence.
             </p>
           </div>
 

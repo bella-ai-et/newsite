@@ -11,7 +11,7 @@ export default function CTASection() {
               Ready to launch your business in Dubai?
             </h2>
             <p className="text-lg text-white/90 opacity-90 max-w-2xl leading-relaxed">
-              Join hundreds of successful entrepreneurs who chose JOAB Solutions for a seamless setup experience.
+              Get clear guidance, transparent costs, and a custom setup plan designed for long-term stability and compliance.
             </p>
 
             {/* CTA Buttons */}

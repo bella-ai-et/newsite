@@ -37,7 +37,7 @@ export default function ContactForm() {
                     Launch Your Business Today
                   </h1>
                   <p className="text-slate-600 text-lg font-normal leading-normal">
-                    Get a free consultation from our experts and scale your operations globally.
+                    Book a free consultation and get clear guidance on company formation, licensing, and compliance in the UAE.
                   </p>
                 </div>
 
@@ -93,10 +93,12 @@ export default function ContactForm() {
                       <option disabled value="">
                         Select a service
                       </option>
-                      <option value="business-setup">Business Setup &amp; Licensing</option>
-                      <option value="consulting">Strategic Consulting</option>
-                      <option value="financial">Financial Advisory</option>
-                      <option value="it-solutions">Digital Solutions</option>
+                      <option value="freezone">Free Zone Company Setup</option>
+                      <option value="mainland">Mainland License</option>
+                      <option value="offshore">Offshore Incorporation</option>
+                      <option value="visa">Visa Processing</option>
+                      <option value="banking">Corporate Banking</option>
+                      <option value="pro">PRO Services</option>
                     </select>
                   </label>
 
