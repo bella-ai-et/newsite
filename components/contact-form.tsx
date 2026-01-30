@@ -2,6 +2,7 @@
 
 import React, { FormEvent, useState } from 'react';
 import { COMPANY_INFO } from '@/lib/data';
+import { FadeIn } from '@/components/animations';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({

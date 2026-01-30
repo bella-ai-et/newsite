@@ -2,8 +2,9 @@
 
 import { ArrowRight, Shield, BadgeCheck } from 'lucide-react';
 import Image from 'next/image';
-
 import Link from 'next/link';
+import { FadeIn, ScaleOnHover } from './animations';
+import { motion } from 'framer-motion';
 
 export default function Hero() {
   return (
@@ -21,9 +22,35 @@ export default function Hero() {
           viewBox="0 0 1000 1000"
           width="100%"
         >
-          <path d="M0,500 Q250,200 500,500 T1000,500" fill="none" stroke="white" strokeWidth="2" />
-          <path d="M0,300 Q250,100 500,300 T1000,300" fill="none" stroke="white" strokeWidth="1" />
-          <circle cx="200" cy="200" fill="none" r="100" stroke="white" strokeWidth="1" />
+          <motion.path 
+            d="M0,500 Q250,200 500,500 T1000,500" 
+            fill="none" 
+            stroke="white" 
+            strokeWidth="2"
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 1 }}
+            transition={{ duration: 2, ease: "easeInOut" }}
+          />
+          <motion.path 
+            d="M0,300 Q250,100 500,300 T1000,300" 
+            fill="none" 
+            stroke="white" 
+            strokeWidth="1"
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 1 }}
+            transition={{ duration: 2, delay: 0.5, ease: "easeInOut" }}
+          />
+          <motion.circle 
+            cx="200" 
+            cy="200" 
+            fill="none" 
+            r="100" 
+            stroke="white" 
+            strokeWidth="1"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1.5, delay: 1 }}
+          />
         </svg>
       </div>
 
@@ -32,40 +59,50 @@ export default function Hero() {
         {/* Left Content */}
         <div className="text-left space-y-8">
           <div>
-            <div className="inline-block text-white/80 uppercase tracking-widest text-sm font-semibold mb-4 border-l-4 border-white pl-4">
-              From Idea to Reality
-            </div>
-            <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight">
-              Your Gateway to Dubai Business Success
-            </h1>
-            <p className="text-xl text-white/70 mt-6 max-w-xl leading-relaxed">
-              Partner with JOAB Solutions, the premier business setup company in Dubai. Your trusted, award-winning partner for seamless incorporation.
-            </p>
+            <FadeIn direction="right" delay={0.2}>
+              <div className="inline-block text-white/80 uppercase tracking-widest text-sm font-semibold mb-4 border-l-4 border-white pl-4">
+                From Idea to Reality
+              </div>
+            </FadeIn>
+            <FadeIn direction="up" delay={0.4}>
+              <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight">
+                Your Gateway to Dubai Business Success
+              </h1>
+            </FadeIn>
+            <FadeIn direction="up" delay={0.6}>
+              <p className="text-xl text-white/70 mt-6 max-w-xl leading-relaxed">
+                Partner with JOAB Solutions, the premier business setup company in Dubai. Your trusted, award-winning partner for seamless incorporation.
+              </p>
+            </FadeIn>
           </div>
 
           {/* CTA Button */}
-          <div>
-            <Link href="/contact" className="bg-white text-[#1B4D6B] px-12 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all shadow-2xl transform hover:-translate-y-1 inline-flex items-center gap-2">
-              Start Here
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
+          <FadeIn direction="up" delay={0.8}>
+            <ScaleOnHover>
+              <Link href="/contact" className="bg-white text-[#1B4D6B] px-12 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all shadow-2xl inline-flex items-center gap-2">
+                Start Here
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </ScaleOnHover>
+          </FadeIn>
 
           {/* Trust badges */}
-          <div className="flex items-center gap-8 text-white/70 pt-4">
-            <div className="flex items-center gap-2">
-              <BadgeCheck className="w-5 h-5 text-white/80" />
-              <span className="text-sm font-medium">DET Licensed</span>
+          <FadeIn direction="up" delay={1.0}>
+            <div className="flex items-center gap-8 text-white/70 pt-4">
+              <div className="flex items-center gap-2">
+                <BadgeCheck className="w-5 h-5 text-white/80" />
+                <span className="text-sm font-medium">DET Licensed</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Shield className="w-5 h-5 text-white/80" />
+                <span className="text-sm font-medium">100% Secure Process</span>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <Shield className="w-5 h-5 text-white/80" />
-              <span className="text-sm font-medium">100% Secure Process</span>
-            </div>
-          </div>
+          </FadeIn>
         </div>
 
         {/* Right - Circular Image */}
-        <div className="relative flex justify-center lg:justify-end">
+        <FadeIn direction="left" delay={0.5} className="relative flex justify-center lg:justify-end">
           <div className="relative w-80 h-80 md:w-[480px] md:h-[480px]">
             {/* Circular image container */}
             <div className="w-full h-full rounded-full overflow-hidden border-[16px] border-white/5 shadow-2xl relative">
@@ -80,11 +117,23 @@ export default function Hero() {
             </div>
 
             {/* Decorative circles */}
-            <div className="absolute -top-4 -right-4 w-8 h-8 bg-white/20 backdrop-blur-md rounded-full" />
-            <div className="absolute top-1/2 -left-12 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full" />
-            <div className="absolute bottom-12 right-0 w-14 h-14 bg-white/15 backdrop-blur-md rounded-full" />
+            <motion.div 
+              animate={{ y: [0, -10, 0] }}
+              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+              className="absolute -top-4 -right-4 w-8 h-8 bg-white/20 backdrop-blur-md rounded-full" 
+            />
+            <motion.div 
+              animate={{ y: [0, 15, 0] }}
+              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 }}
+              className="absolute top-1/2 -left-12 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full" 
+            />
+            <motion.div 
+              animate={{ y: [0, -20, 0] }}
+              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 2 }}
+              className="absolute bottom-12 right-0 w-14 h-14 bg-white/15 backdrop-blur-md rounded-full" 
+            />
           </div>
-        </div>
+        </FadeIn>
       </div>
     </main>
   );

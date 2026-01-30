@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { COMPANY_INFO, NAVIGATION } from '@/lib/data';
+import { Globe } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -9,10 +10,17 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-20">
           {/* Brand Section */}
           <div className="lg:col-span-4 flex flex-col gap-6">
-            <h2 className="text-blue-600 text-xl font-bold tracking-tight">JOAB SOLUTIONS</h2>
-            <p className="text-slate-600 text-sm leading-relaxed max-w-sm">
-              {COMPANY_INFO.description}
-            </p>
+            <div>
+              <h2 className="text-blue-600 text-xl font-bold tracking-tight flex items-center gap-1">
+                <span className="flex items-center">
+                  J<Globe className="w-5 h-5 mx-[1px]" strokeWidth={2.5} />AB
+                </span>
+                <span>SOLUTIONS</span>
+              </h2>
+              <p className="text-slate-600 text-sm leading-relaxed max-w-sm mt-4">
+                {COMPANY_INFO.description}
+              </p>
+            </div>
             {/* Social Icons */}
             <div className="flex gap-3 mt-2">
               <Link
@@ -38,94 +46,102 @@ export default function Footer() {
 
           {/* Services Column */}
           <div className="lg:col-span-2 flex flex-col gap-6">
-            <h4 className="text-slate-900 font-bold text-sm uppercase tracking-wider">Services</h4>
-            <nav className="flex flex-col gap-4">
-              {NAVIGATION.services.map((item) => (
-                <Link
-                  key={item.title}
-                  className="text-slate-600 text-xs hover:text-blue-600 transition-colors font-medium"
-                  href={item.href}
-                >
-                  {item.title}
-                </Link>
-              ))}
-            </nav>
+            <div>
+              <h4 className="text-slate-900 font-bold text-sm uppercase tracking-wider">Services</h4>
+              <nav className="flex flex-col gap-4 mt-4">
+                {NAVIGATION.services.map((item) => (
+                  <Link
+                    key={item.title}
+                    className="text-slate-600 text-xs hover:text-blue-600 transition-colors font-medium hover:translate-x-1 duration-200 inline-block"
+                    href={item.href}
+                  >
+                    {item.title}
+                  </Link>
+                ))}
+              </nav>
+            </div>
           </div>
 
           {/* Company Column */}
           <div className="lg:col-span-2 flex flex-col gap-6">
-            <h4 className="text-slate-900 font-bold text-sm uppercase tracking-wider">Company</h4>
-            <nav className="flex flex-col gap-4">
-              {NAVIGATION.main.map((item) => (
-                <Link
-                  key={item.title}
-                  className="text-slate-600 text-xs hover:text-blue-600 transition-colors font-medium"
-                  href={item.href}
-                >
-                  {item.title}
-                </Link>
-              ))}
-            </nav>
+            <div>
+              <h4 className="text-slate-900 font-bold text-sm uppercase tracking-wider">Company</h4>
+              <nav className="flex flex-col gap-4 mt-4">
+                {NAVIGATION.main.map((item) => (
+                  <Link
+                    key={item.title}
+                    className="text-slate-600 text-xs hover:text-blue-600 transition-colors font-medium hover:translate-x-1 duration-200 inline-block"
+                    href={item.href}
+                  >
+                    {item.title}
+                  </Link>
+                ))}
+              </nav>
+            </div>
           </div>
 
           {/* Get in Touch Column */}
           <div className="lg:col-span-4 flex flex-col gap-8">
-            <div className="flex flex-col gap-4">
-              <h4 className="text-slate-900 font-bold text-sm uppercase tracking-wider">Get in Touch</h4>
-              <div className="flex flex-col gap-3">
-                {/* Email */}
-                <div className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-blue-600 text-lg mt-0.5">mail</span>
-                  <Link
-                    className="text-slate-600 text-xs hover:text-blue-600 transition-colors"
-                    href={`mailto:${COMPANY_INFO.email}`}
-                  >
-                    {COMPANY_INFO.email}
-                  </Link>
-                </div>
-
-                {/* Phone */}
-                <div className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-blue-600 text-lg mt-0.5">call</span>
-                  <div className="flex flex-col gap-1">
+            <div>
+              <div className="flex flex-col gap-4">
+                <h4 className="text-slate-900 font-bold text-sm uppercase tracking-wider">Get in Touch</h4>
+                <div className="flex flex-col gap-3 mt-4">
+                  {/* Email */}
+                  <div className="flex items-start gap-3 group">
+                    <span className="material-symbols-outlined text-blue-600 text-lg mt-0.5 group-hover:scale-110 transition-transform">mail</span>
                     <Link
                       className="text-slate-600 text-xs hover:text-blue-600 transition-colors"
-                      href={`tel:${COMPANY_INFO.phone.main.replace(/\s/g, '')}`}
+                      href={`mailto:${COMPANY_INFO.email}`}
                     >
-                      {COMPANY_INFO.phone.main}
-                    </Link>
-                    <Link
-                      className="text-slate-600 text-xs hover:text-blue-600 transition-colors"
-                      href={`tel:${COMPANY_INFO.phone.secondary.replace(/\s/g, '')}`}
-                    >
-                      {COMPANY_INFO.phone.secondary}
+                      {COMPANY_INFO.email}
                     </Link>
                   </div>
-                </div>
 
-                {/* Address */}
-                <div className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-blue-600 text-lg mt-0.5">location_on</span>
-                  <p className="text-slate-600 text-xs leading-relaxed max-w-[250px]">
-                    {COMPANY_INFO.address}
-                  </p>
+                  {/* Phone */}
+                  <div className="flex items-start gap-3 group">
+                    <span className="material-symbols-outlined text-blue-600 text-lg mt-0.5 group-hover:scale-110 transition-transform">call</span>
+                    <div className="flex flex-col gap-1">
+                      <Link
+                        className="text-slate-600 text-xs hover:text-blue-600 transition-colors"
+                        href={`tel:${COMPANY_INFO.phone.main.replace(/\s/g, '')}`}
+                      >
+                        {COMPANY_INFO.phone.main}
+                      </Link>
+                      <Link
+                        className="text-slate-600 text-xs hover:text-blue-600 transition-colors"
+                        href={`tel:${COMPANY_INFO.phone.secondary.replace(/\s/g, '')}`}
+                      >
+                        {COMPANY_INFO.phone.secondary}
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* Address */}
+                  <div className="flex items-start gap-3 group">
+                    <span className="material-symbols-outlined text-blue-600 text-lg mt-0.5 group-hover:scale-110 transition-transform">location_on</span>
+                    <p className="text-slate-600 text-xs leading-relaxed max-w-[250px]">
+                      {COMPANY_INFO.address}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-slate-500 text-xs">
-            © {new Date().getFullYear()} {COMPANY_INFO.name}. All rights reserved.
-          </p>
-          <div className="flex gap-6">
-            <Link className="text-slate-500 hover:text-blue-600 text-xs transition-colors" href="#">
-              Privacy Policy
-            </Link>
-            <Link className="text-slate-500 hover:text-blue-600 text-xs transition-colors" href="#">
-              Terms of Service
-            </Link>
+        <div>
+          <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-slate-500 text-xs">
+              © {new Date().getFullYear()} {COMPANY_INFO.name}. All rights reserved.
+            </p>
+            <div className="flex gap-6">
+              <Link className="text-slate-500 hover:text-blue-600 text-xs transition-colors" href="#">
+                Privacy Policy
+              </Link>
+              <Link className="text-slate-500 hover:text-blue-600 text-xs transition-colors" href="#">
+                Terms of Service
+              </Link>
+            </div>
           </div>
         </div>
       </div>

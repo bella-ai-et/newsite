@@ -4,6 +4,7 @@ import Footer from '@/components/footer';
 import { COMPANY_INFO } from '@/lib/data';
 import { CheckCircle2, Target, Users, ShieldCheck } from 'lucide-react';
 import CTASection from '@/components/cta-section';
+import { FadeIn, ScaleOnHover, ZoomIn } from '@/components/animations';
 
 export default function AboutPage() {
   const values = [
@@ -41,7 +42,7 @@ export default function AboutPage() {
       {/* Intro Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
-          <div>
+          <FadeIn direction="right">
             <h2 className="text-3xl font-bold text-slate-900 mb-6">
               Empowering Business Growth in the UAE
             </h2>
@@ -56,38 +57,46 @@ export default function AboutPage() {
                 Beyond company formation, we support post-setup needs such as business bank account opening, corporate tax registration, and ongoing compliance assistance. Our focus is long-term stability, compliance, and clarity for our clients.
               </p>
             </div>
-          </div>
-          <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl bg-slate-100">
-            {/* Placeholder for an office or team image */}
-             <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/10 to-transparent"></div>
-             <div className="flex items-center justify-center h-full text-slate-400 bg-slate-200">
-                <span className="material-symbols-outlined text-6xl">business</span>
-             </div>
-          </div>
+          </FadeIn>
+          <FadeIn direction="left" delay={0.2}>
+            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl bg-slate-100">
+              {/* Placeholder for an office or team image */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/10 to-transparent"></div>
+              <div className="flex items-center justify-center h-full text-slate-400 bg-slate-200">
+                  <span className="material-symbols-outlined text-6xl">business</span>
+              </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Values Section */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">Our Core Values</h2>
-            <p className="text-slate-600">
-              The principles that guide our work and our relationship with every client.
-            </p>
-          </div>
+          <FadeIn direction="up">
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">Our Core Values</h2>
+              <p className="text-slate-600">
+                The principles that guide our work and and our relationship with every client.
+              </p>
+            </div>
+          </FadeIn>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <div key={index} className="bg-white p-8 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
-                  {value.icon}
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{value.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  {value.description}
-                </p>
-              </div>
+              <FadeIn key={index} delay={index * 0.1} direction="up" className="h-full">
+                <ScaleOnHover className="h-full">
+                  <div className="bg-white p-8 rounded-xl shadow-sm border border-slate-100 h-full">
+                    <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                      {value.icon}
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-900 mb-3">{value.title}</h3>
+                    <p className="text-slate-600 text-sm leading-relaxed">
+                      {value.description}
+                    </p>
+                  </div>
+                </ScaleOnHover>
+              </FadeIn>
             ))}
           </div>
         </div>

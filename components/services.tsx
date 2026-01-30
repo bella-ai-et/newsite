@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { FadeIn, StaggerContainer, ScaleOnHover } from './animations';
 
 export default function Services() {
   const services = [
@@ -45,45 +48,58 @@ export default function Services() {
       <div className="mx-auto max-w-6xl px-6 lg:px-12">
         {/* Header */}
         <div className="mb-16 flex flex-col items-center gap-4 text-center">
-          <span className="text-sm font-bold uppercase tracking-wider text-[#0f49bd]">
-            Our Expertise
-          </span>
-          <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight tracking-tight">
-            Complete Business Solutions in UAE
-          </h2>
-          <p className="max-w-2xl text-lg text-[#4c669a] leading-relaxed">
-            Navigate the complexities of business setup with our expert-led services tailored for your success in Dubai and beyond.
-          </p>
+          <FadeIn direction="up">
+            <span className="text-sm font-bold uppercase tracking-wider text-[#0f49bd]">
+              Our Expertise
+            </span>
+          </FadeIn>
+          <FadeIn direction="up" delay={0.1}>
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight tracking-tight">
+              Complete Business Solutions in UAE
+            </h2>
+          </FadeIn>
+          <FadeIn direction="up" delay={0.2}>
+            <p className="max-w-2xl text-lg text-[#4c669a] leading-relaxed">
+              Navigate the complexities of business setup with our expert-led services tailored for your success in Dubai and beyond.
+            </p>
+          </FadeIn>
         </div>
 
         {/* Service Grid */}
-        <div className="mb-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <StaggerContainer className="mb-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
-            <div
-              key={index}
-              className="rounded-2xl border border-gray-200 bg-white p-8 hover:border-[#0f49bd] hover:shadow-lg transition-all duration-300"
-            >
-              <div className="mb-4 flex items-center justify-center w-12 h-12 rounded-xl bg-[#0f49bd]/10 text-[#0f49bd]">
-                <span className="material-symbols-outlined text-2xl">
-                  {service.icon}
-                </span>
-              </div>
-              <h3 className="mb-3 text-xl font-bold text-gray-900">
-                {service.title}
-              </h3>
-              <p className="text-base text-[#4c669a] leading-relaxed">
-                {service.description}
-              </p>
-            </div>
+            <FadeIn key={index} direction="up" delay={0}>
+              <ScaleOnHover className="h-full">
+                <div
+                  className="h-full rounded-2xl border border-gray-200 bg-white p-8 hover:border-[#0f49bd] hover:shadow-lg transition-all duration-300 cursor-pointer"
+                >
+                  <div className="mb-4 flex items-center justify-center w-12 h-12 rounded-xl bg-[#0f49bd]/10 text-[#0f49bd]">
+                    <span className="material-symbols-outlined text-2xl">
+                      {service.icon}
+                    </span>
+                  </div>
+                  <h3 className="mb-3 text-xl font-bold text-gray-900">
+                    {service.title}
+                  </h3>
+                  <p className="text-base text-[#4c669a] leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
+              </ScaleOnHover>
+            </FadeIn>
           ))}
-        </div>
+        </StaggerContainer>
 
         {/* CTA Button */}
-        <div className="flex justify-center">
-          <Link href="/services" className="bg-[#0f49bd] hover:bg-[#0d3a8f] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg shadow-[#0f49bd]/20">
-            View All Services
-          </Link>
-        </div>
+        <FadeIn direction="up" delay={0.4}>
+          <div className="flex justify-center">
+            <ScaleOnHover>
+              <Link href="/services" className="bg-[#0f49bd] hover:bg-[#0d3a8f] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg shadow-[#0f49bd]/20 inline-block">
+                View All Services
+              </Link>
+            </ScaleOnHover>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { FadeIn } from '@/components/animations';
 
 interface PageHeaderProps {
   title: string;
@@ -27,16 +28,22 @@ export default function PageHeader({ title, subtitle, description, backgroundIma
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-        <div className="inline-block text-blue-200 uppercase tracking-widest text-sm font-semibold mb-4 border-b border-blue-400 pb-1">
-          {subtitle}
-        </div>
-        <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-          {title}
-        </h1>
+        <FadeIn direction="up">
+          <div className="inline-block text-blue-200 uppercase tracking-widest text-sm font-semibold mb-4 border-b border-blue-400 pb-1">
+            {subtitle}
+          </div>
+        </FadeIn>
+        <FadeIn direction="up" delay={0.1}>
+          <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            {title}
+          </h1>
+        </FadeIn>
         {description && (
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed">
-            {description}
-          </p>
+          <FadeIn direction="up" delay={0.2}>
+            <p className="text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed">
+              {description}
+            </p>
+          </FadeIn>
         )}
       </div>
     </section>

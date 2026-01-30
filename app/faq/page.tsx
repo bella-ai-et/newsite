@@ -2,6 +2,7 @@ import PageHeader from '@/components/page-header';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import CTASection from '@/components/cta-section';
+import { FadeIn, ZoomIn } from '@/components/animations';
 
 export default function FAQPage() {
   const faqs = [
@@ -39,12 +40,14 @@ export default function FAQPage() {
       <section className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-6 space-y-6">
           {faqs.map((faq, index) => (
-            <div key={index} className="bg-slate-50 border border-slate-100 rounded-xl p-6 hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-bold text-slate-900 mb-3">{faq.question}</h3>
-              <p className="text-slate-600 leading-relaxed">
-                {faq.answer}
-              </p>
-            </div>
+            <ZoomIn key={index} delay={index * 0.1} className="w-full">
+              <div className="bg-slate-50 border border-slate-100 rounded-xl p-6 hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-bold text-slate-900 mb-3">{faq.question}</h3>
+                <p className="text-slate-600 leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            </ZoomIn>
           ))}
         </div>
       </section>
