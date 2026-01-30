@@ -3,6 +3,8 @@
 import { ArrowRight, Shield, BadgeCheck } from 'lucide-react';
 import Image from 'next/image';
 
+import Link from 'next/link';
+
 export default function Hero() {
   return (
     <main className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#1B4D6B]">
@@ -43,10 +45,10 @@ export default function Hero() {
 
           {/* CTA Button */}
           <div>
-            <button className="bg-white text-[#1B4D6B] px-12 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all shadow-2xl transform hover:-translate-y-1 inline-flex items-center gap-2">
+            <Link href="/contact" className="bg-white text-[#1B4D6B] px-12 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all shadow-2xl transform hover:-translate-y-1 inline-flex items-center gap-2">
               Start Here
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </Link>
           </div>
 
           {/* Trust badges */}

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { COMPANY_INFO, NAVIGATION } from '@/lib/data';
 
 export default function Footer() {
   return (
@@ -10,19 +11,19 @@ export default function Footer() {
           <div className="lg:col-span-4 flex flex-col gap-6">
             <h2 className="text-blue-600 text-xl font-bold tracking-tight">JOAB SOLUTIONS</h2>
             <p className="text-slate-600 text-sm leading-relaxed max-w-sm">
-              Leading experts in company formation and corporate support in the UAE. We simplify your business journey with professional excellence.
+              {COMPANY_INFO.description}
             </p>
             {/* Social Icons */}
             <div className="flex gap-3 mt-2">
               <Link
                 className="group w-9 h-9 flex items-center justify-center rounded-lg bg-slate-50 border border-slate-100 hover:border-blue-600/30 transition-all shadow-sm"
-                href="#"
+                href={COMPANY_INFO.social.linkedin}
               >
                 <span className="material-symbols-outlined text-slate-500 group-hover:text-blue-600 text-xl">share</span>
               </Link>
               <Link
                 className="group w-9 h-9 flex items-center justify-center rounded-lg bg-slate-50 border border-slate-100 hover:border-blue-600/30 transition-all shadow-sm"
-                href="#"
+                href={`mailto:${COMPANY_INFO.email}`}
               >
                 <span className="material-symbols-outlined text-slate-500 group-hover:text-blue-600 text-xl">alternate_email</span>
               </Link>
@@ -39,24 +40,15 @@ export default function Footer() {
           <div className="lg:col-span-2 flex flex-col gap-6">
             <h4 className="text-slate-900 font-bold text-sm uppercase tracking-wider">Services</h4>
             <nav className="flex flex-col gap-4">
-              <Link
-                className="text-slate-600 text-xs hover:text-blue-600 transition-colors font-medium"
-                href="#"
-              >
-                Mainland Company Setup
-              </Link>
-              <Link
-                className="text-slate-600 text-xs hover:text-blue-600 transition-colors font-medium"
-                href="#"
-              >
-                Free Zone Formation
-              </Link>
-              <Link
-                className="text-slate-600 text-xs hover:text-blue-600 transition-colors font-medium"
-                href="#"
-              >
-                Visa Services
-              </Link>
+              {NAVIGATION.services.map((item) => (
+                <Link
+                  key={item.title}
+                  className="text-slate-600 text-xs hover:text-blue-600 transition-colors font-medium"
+                  href={item.href}
+                >
+                  {item.title}
+                </Link>
+              ))}
             </nav>
           </div>
 
@@ -64,18 +56,15 @@ export default function Footer() {
           <div className="lg:col-span-2 flex flex-col gap-6">
             <h4 className="text-slate-900 font-bold text-sm uppercase tracking-wider">Company</h4>
             <nav className="flex flex-col gap-4">
-              <Link
-                className="text-slate-600 text-xs hover:text-blue-600 transition-colors font-medium"
-                href="#"
-              >
-                About Us
-              </Link>
-              <Link
-                className="text-slate-600 text-xs hover:text-blue-600 transition-colors font-medium"
-                href="#"
-              >
-                Contact Us
-              </Link>
+              {NAVIGATION.main.map((item) => (
+                <Link
+                  key={item.title}
+                  className="text-slate-600 text-xs hover:text-blue-600 transition-colors font-medium"
+                  href={item.href}
+                >
+                  {item.title}
+                </Link>
+              ))}
             </nav>
           </div>
 
@@ -89,9 +78,9 @@ export default function Footer() {
                   <span className="material-symbols-outlined text-blue-600 text-lg mt-0.5">mail</span>
                   <Link
                     className="text-slate-600 text-xs hover:text-blue-600 transition-colors"
-                    href="mailto:info@joabsolutions.com"
+                    href={`mailto:${COMPANY_INFO.email}`}
                   >
-                    info@joabsolutions.com
+                    {COMPANY_INFO.email}
                   </Link>
                 </div>
 
@@ -101,61 +90,40 @@ export default function Footer() {
                   <div className="flex flex-col gap-1">
                     <Link
                       className="text-slate-600 text-xs hover:text-blue-600 transition-colors"
-                      href="tel:+971588364257"
+                      href={`tel:${COMPANY_INFO.phone.main.replace(/\s/g, '')}`}
                     >
-                      +971 58 836 4257
+                      {COMPANY_INFO.phone.main}
                     </Link>
                     <Link
                       className="text-slate-600 text-xs hover:text-blue-600 transition-colors"
-                      href="tel:+971526442563"
+                      href={`tel:${COMPANY_INFO.phone.secondary.replace(/\s/g, '')}`}
                     >
-                      +971 52 644 2563
+                      {COMPANY_INFO.phone.secondary}
                     </Link>
                   </div>
                 </div>
 
-                {/* Location */}
+                {/* Address */}
                 <div className="flex items-start gap-3">
                   <span className="material-symbols-outlined text-blue-600 text-lg mt-0.5">location_on</span>
-                  <p className="text-slate-600 text-xs leading-relaxed">
-                    AL GURG TOWER 3, Tayseer Business Center, Dubai, UAE.
+                  <p className="text-slate-600 text-xs leading-relaxed max-w-[250px]">
+                    {COMPANY_INFO.address}
                   </p>
                 </div>
-              </div>
-            </div>
-
-            {/* Newsletter Subscription */}
-            <div className="flex flex-col gap-4">
-              <div className="relative max-w-sm">
-                <input
-                  className="w-full bg-slate-50 border-none rounded-xl pl-4 pr-32 py-3.5 text-xs focus:ring-2 focus:ring-blue-600/20 text-slate-900 placeholder:text-slate-400"
-                  placeholder="Subscribe to newsletter"
-                  type="email"
-                />
-                <button className="absolute right-1.5 top-1.5 bottom-1.5 bg-blue-600 hover:bg-blue-700 text-white font-bold px-5 rounded-lg text-xs transition-all shadow-md">
-                  Subscribe
-                </button>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Footer */}
-        <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-slate-400 text-xs font-medium tracking-tight">
-            © 2024 JOAB Solutions. All rights reserved.
+        <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-slate-500 text-xs">
+            © {new Date().getFullYear()} {COMPANY_INFO.name}. All rights reserved.
           </p>
-          <div className="flex gap-8">
-            <Link
-              className="text-slate-400 text-xs hover:text-blue-600 font-bold uppercase tracking-wider transition-colors"
-              href="#"
-            >
+          <div className="flex gap-6">
+            <Link className="text-slate-500 hover:text-blue-600 text-xs transition-colors" href="#">
               Privacy Policy
             </Link>
-            <Link
-              className="text-slate-400 text-xs hover:text-blue-600 font-bold uppercase tracking-wider transition-colors"
-              href="#"
-            >
+            <Link className="text-slate-500 hover:text-blue-600 text-xs transition-colors" href="#">
               Terms of Service
             </Link>
           </div>

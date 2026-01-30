@@ -1,8 +1,7 @@
 'use client';
 
-import React from "react"
-
-import { FormEvent, useState } from 'react';
+import React, { FormEvent, useState } from 'react';
+import { COMPANY_INFO } from '@/lib/data';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -15,6 +14,7 @@ export default function ContactForm() {
     e.preventDefault();
     console.log('[v0] Form submitted:', formData);
     // Handle form submission here
+    alert("Thank you for your inquiry. We will contact you shortly.");
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -23,7 +23,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-gradient-to-b from-white to-slate-50 py-12 md:py-20 lg:py-32">
+    <div className="relative flex w-full flex-col overflow-x-hidden bg-gradient-to-b from-white to-slate-50 py-12 md:py-20 lg:py-32">
       {/* Main Container */}
       <div className="layout-container flex h-full grow flex-col items-center justify-center px-4 md:px-10 lg:px-40">
         {/* CTA Content Wrapper */}
@@ -93,10 +93,11 @@ export default function ContactForm() {
                       <option disabled value="">
                         Select a service
                       </option>
-                      <option value="business-setup">Business Setup &amp; Licensing</option>
-                      <option value="consulting">Strategic Consulting</option>
-                      <option value="financial">Financial Advisory</option>
-                      <option value="it-solutions">Digital Solutions</option>
+                      <option value="Free Zone">Free Zone Setup</option>
+                      <option value="Mainland">Mainland Setup</option>
+                      <option value="Offshore">Offshore Setup</option>
+                      <option value="Visa">Visa Services</option>
+                      <option value="Other">Other Inquiry</option>
                     </select>
                   </label>
 
@@ -126,18 +127,18 @@ export default function ContactForm() {
                 </div>
 
                 {/* Contact Item: Phone */}
-                <div className="flex items-center gap-4 group cursor-pointer">
+                <a href={`tel:${COMPANY_INFO.phone.main.replace(/\s/g, '')}`} className="flex items-center gap-4 group cursor-pointer">
                   <div className="bg-blue-600 text-white rounded-xl w-14 h-14 flex items-center justify-center shadow-md transition-transform group-hover:scale-105">
                     <span className="material-symbols-outlined text-2xl">call</span>
                   </div>
                   <div className="flex flex-col">
-                    <p className="text-slate-900 text-lg font-bold leading-none mb-1">+971 58 836 4257</p>
+                    <p className="text-slate-900 text-lg font-bold leading-none mb-1">{COMPANY_INFO.phone.main}</p>
                     <p className="text-slate-500 text-sm font-medium">Direct Voice Call</p>
                   </div>
-                </div>
+                </a>
 
                 {/* Contact Item: WhatsApp */}
-                <div className="flex items-center gap-4 group cursor-pointer">
+                <a href={`https://wa.me/${COMPANY_INFO.phone.main.replace(/[\s+]/g, '')}`} target="_blank" className="flex items-center gap-4 group cursor-pointer">
                   <div className="bg-green-500 text-white rounded-xl w-14 h-14 flex items-center justify-center shadow-md transition-transform group-hover:scale-105">
                     <span className="material-symbols-outlined text-2xl">chat</span>
                   </div>
@@ -145,7 +146,7 @@ export default function ContactForm() {
                     <p className="text-slate-900 text-lg font-bold leading-none mb-1">WhatsApp Chat</p>
                     <p className="text-slate-500 text-sm font-medium">Instant Messaging</p>
                   </div>
-                </div>
+                </a>
 
                 {/* Divider */}
                 <div className="h-px bg-gray-200 w-full"></div>
@@ -157,7 +158,7 @@ export default function ContactForm() {
                     Response Time: &lt; 2 Hours
                   </p>
                   <p className="text-slate-500 text-xs">
-                    Available Sunday to Thursday, 9:00 AM — 6:00 PM (GMT+4)
+                    {COMPANY_INFO.workingHours.weekdays}
                   </p>
                 </div>
               </div>

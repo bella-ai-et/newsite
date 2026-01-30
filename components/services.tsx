@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Services() {
   const services = [
     {
@@ -78,9 +80,9 @@ export default function Services() {
 
         {/* CTA Button */}
         <div className="flex justify-center">
-          <button className="bg-[#0f49bd] hover:bg-[#0d3a8f] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg shadow-[#0f49bd]/20">
+          <Link href="/services" className="bg-[#0f49bd] hover:bg-[#0d3a8f] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg shadow-[#0f49bd]/20">
             View All Services
-          </button>
+          </Link>
         </div>
       </div>
     </section>

@@ -1,10 +1,11 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function WhyChooseUs() {
   const features = [
     {
-      title: '10+ Years of Excellence',
-      description: "A decade of experience navigating the UAE's regulatory landscape with precision.",
+      title: 'Trusted & Established',
+      description: "Established in 2022, we have quickly become a trusted partner for business setup in the UAE.",
       icon: 'verified',
     },
     {
@@ -60,9 +61,9 @@ export default function WhyChooseUs() {
 
             {/* CTA Button */}
             <div className="pt-4">
-              <button className="bg-[#0f49bd] hover:bg-[#0d3a8f] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg shadow-[#0f49bd]/20">
+              <Link href="/process" className="inline-block bg-[#0f49bd] hover:bg-[#0d3a8f] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg shadow-[#0f49bd]/20">
                 Learn More About Our Process
-              </button>
+              </Link>
             </div>
           </div>
 

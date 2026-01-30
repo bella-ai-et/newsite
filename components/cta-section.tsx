@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function CTASection() {
   return (
     <section className="w-full bg-white py-16 lg:py-24 px-6 lg:px-12">
@@ -16,12 +18,12 @@ export default function CTASection() {
 
             {/* CTA Buttons */}
             <div className="pt-4 flex flex-col sm:flex-row gap-4">
-              <button className="bg-white text-[#0f49bd] px-8 py-4 rounded-xl font-extrabold text-base hover:bg-gray-50 transition-colors duration-300 shadow-lg">
+              <Link href="/contact" className="bg-white text-[#0f49bd] px-8 py-4 rounded-xl font-extrabold text-base hover:bg-gray-50 transition-colors duration-300 shadow-lg text-center">
                 Book a Free Consultation
-              </button>
-              <button className="bg-transparent border-2 border-white/30 text-white px-8 py-4 rounded-xl font-extrabold text-base hover:bg-white/10 transition-colors duration-300">
+              </Link>
+              <Link href="/services" className="bg-transparent border-2 border-white/30 text-white px-8 py-4 rounded-xl font-extrabold text-base hover:bg-white/10 transition-colors duration-300 text-center">
                 View Pricing
-              </button>
+              </Link>
             </div>
           </div>
         </div>
